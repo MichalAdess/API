@@ -1,5 +1,5 @@
 import org.testng.annotations.Test;
-
+//מחלקה שבודקת שהסטטוס הוא 200 = תקין
 public class TestValidStatus {
 
     @Test

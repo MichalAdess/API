@@ -1,16 +1,11 @@
 import java.util.Date;
-
+//מחלקה שמתארת את הגייסון כאוביקט
 public class DateJsonTest {
 
     private int status;
     private String date;
     private String milliseconds_since_epoch;
     private String time;
-    private Date dateDate;
-
-    public Date getDateDate() {
-        return dateDate;
-    }
 
     public String getDate() {
         return date;

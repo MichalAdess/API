@@ -5,28 +5,29 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-
+//מחלקה שמנהלת את ה API
 public class DateAPI {
 
     static String url = "http://date.jsontest.com/";
-    static String charset = "UTF-8";
 
     public static DateJsonTest getDateObj() {
         try {
+            //open url connection
             URLConnection connection = new URL(url).openConnection();
-            connection.setRequestProperty("Accept-Charset", charset);
             connection.setRequestProperty("Content-Type", "application/json");
             if (connection instanceof HttpURLConnection) {
+                //the connection is from http type
                 HttpURLConnection httpConnection = (HttpURLConnection) connection;
-                httpConnection.setRequestMethod("GET");
+                //the way to read the content
                 BufferedReader br = new BufferedReader(new InputStreamReader(httpConnection.getInputStream()));
                 StringBuilder sb = new StringBuilder();
                 String s = br.readLine();
                 while (s != null) {
+                    //append each row in order to get the all string result
                     sb.append(s);
                     s = br.readLine();
                 }
-//                System.out.println(sb);
+                //convert json to object
                 DateJsonTest dateJsonTest = new Gson().fromJson(sb.toString(), DateJsonTest.class);
                 dateJsonTest.setStatus(httpConnection.getResponseCode());
                 return dateJsonTest;

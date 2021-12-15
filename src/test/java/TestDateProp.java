@@ -1,5 +1,5 @@
 import org.testng.annotations.Test;
-
+//מחלקה שבודקת ששדה תאריך חזר
 public class TestDateProp {
 
     @Test
